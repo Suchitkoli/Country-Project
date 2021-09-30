@@ -1,0 +1,31 @@
+<h2 class="col-3  text-right">
+Countries
+</h2>
+ <mat-form-field class="container" >
+   
+ 
+  <mat-label>Select Country</mat-label>
+  
+    <mat-select class="form-control form-control-sm" [(ngModel)]="selectedValue"  >
+      <mat-option  *ngFor="let data of countryname"  [value]="data.country" (click)="getcountry(selectedValue)" >
+      {{data.country}}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+<!-- <p> Selected Country: {{selectedValue}} </p> -->
+<br><br>
+<!-- <form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+  <input matInput type="text" [(ngModel)]="selectedValue"
+         placeholder="Search for a street"
+         [formControl]="control"
+         [matAutocomplete]="auto">
+       
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option   *ngFor="let data of filteredStreets | async" [value]="data"  (click)="getcountry(selectedValue)">
+      {{data}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+</form> -->
