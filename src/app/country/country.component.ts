@@ -5,10 +5,17 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { CountrydataService } from '../services/countrydata.service';
-interface domains{
-  domain:string
-
+export interface Data{
+  country:string
+   region:string
 }
+
+export interface Object{
+  data:Data
+}
+
+
+
  interface country{
    country:string
    region:string
@@ -22,7 +29,7 @@ interface domains{
 export class CountryComponent implements OnInit {
   selectedValue!:string
   constructor(private countries:CountrydataService ,private router:Router) { }
-  country:Array <any>=new Array()
+  country=<Object>{}
   maindata:Array <any>=new Array()
   dataInfo:any
   dataManage:any
@@ -37,19 +44,16 @@ export class CountryComponent implements OnInit {
     
   //Fetching countries
 
-  this.countries.getcountry().subscribe(data=>{
+  this.countries.getcountry().subscribe((data:any)=>{
     console.log("country Data::-", data)
     
-    this.country.push(data)
+    this.country=data
     
-    for(let i of this.country)
+    for(let i of this.country['data'])
     {
       console.log("For Loop ::-",i.data)
       this.dataInfo=i.data
       console.log("For Loop Data info ::-",this.dataInfo)
-   
-       
-
    }
    
    this.mapped = Object.entries(this.dataInfo).map(([name, value ]) => ({name, value}));

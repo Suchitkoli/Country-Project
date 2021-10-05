@@ -30,9 +30,12 @@
     </tr>
 </table>
 <br><br> -->
-<h1 style="margin-left: 650px;" >{{countrycode}}</h1>
-  <mat-grid-list cols="3" rowHeight="3:2">
-    <mat-grid-tile *ngFor="let data of Info">
+<div *ngIf="spinner" >
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<h1 style="margin-left: 650px;" >{{countryCode}}</h1>
+  <mat-grid-list *ngIf="!spinner" cols="3" rowHeight="3:2">
+    <mat-grid-tile  *ngFor="let data of Info">
 <mat-expansion-panel hideToggle  >
     <mat-expansion-panel-header>
       <mat-panel-title >

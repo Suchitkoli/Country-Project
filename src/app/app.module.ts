@@ -15,6 +15,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -33,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatExpansionModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    MatProgressBarModule,
     MatCardModule,
     FormsModule,
     MatInputModule,
