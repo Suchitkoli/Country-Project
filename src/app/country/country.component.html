@@ -7,15 +7,15 @@ Countries
   <mat-label>Select Country</mat-label>
   
     <mat-select  [(ngModel)]="selectedValue"  >
-      <mat-option  *ngFor="let data of countryname"  [value]="data.country" (click)="getcountry(selectedValue)" >
-      {{data.country}}
+      <mat-option  *ngFor="let data of dataInfo"  [value]="data" (click)="getcountry(selectedValue)" >
+      {{data}}
       </mat-option>
     </mat-select>
 
   </mat-form-field>
 <!-- <p> Selected Country: {{selectedValue}} </p> -->
 <br><br>
-<!-- <form class="example-form">
+<form class="example-form">
   <mat-form-field class="example-full-width" appearance="fill">
   <input matInput type="text" [(ngModel)]="selectedValue"
          placeholder="Search for a street"
@@ -28,4 +28,4 @@ Countries
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>
-</form> -->
+</form>
