@@ -16,7 +16,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -32,9 +34,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSelectModule,
     MatGridListModule,
     MatExpansionModule,
+    MatMenuModule,
+    MatButtonModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatProgressBarModule,
+    MatListModule,
     MatCardModule,
     FormsModule,
     MatInputModule,

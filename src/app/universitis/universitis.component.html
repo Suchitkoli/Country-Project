@@ -1,55 +1,22 @@
-<!-- <table>
-    <tr>
-        <th>
-            Universities Name:
-        </th>
-        <th>
-            Country Name:
-        </th>
-        <th>
-           Alpha_two_code:
-        </th>
-        <th>
-            Domains:
-         </th>
-    </tr>
-    <tr *ngFor="let data of Info">
-        <td>
-            {{data.country}}
-        </td>
-        <td>
-            {{data.name}}
-        </td>
-        <td>
-            {{data.alpha_two_code}}
-        </td>
-        <td>
-            {{data.domains}}
-        </td>
-       
-    </tr>
-</table>
-<br><br> -->
+
 <div *ngIf="spinner" >
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 <h1 style="margin-left: 650px;" >{{countryCode}}</h1>
-  <mat-grid-list *ngIf="!spinner" cols="3" rowHeight="3:2">
+<mat-grid-list *ngIf="!spinner" cols="3" rowHeight="3:2">
     <mat-grid-tile  *ngFor="let data of Info">
-<mat-expansion-panel hideToggle  >
-    <mat-expansion-panel-header>
-      <mat-panel-title >
-       University Name:  
-      </mat-panel-title>
-      <mat-panel-description>
-       <P> {{data.name}}</P>
-      </mat-panel-description>
-    </mat-expansion-panel-header  >
-    <p >Country Name:{{data.country}}</p>
-    <p >Alpha_two_code:{{data.alpha_two_code}}</p>
-    Domain: <a  href="{{data.web_pages}}">  {{data.web_pages}}</a>
-  </mat-expansion-panel>
-
+        <mat-expansion-panel hideToggle  >
+            <mat-expansion-panel-header>
+                 <mat-panel-title >
+                     University Name:  
+                 </mat-panel-title>
+                <mat-panel-description>
+                 <P> {{data.name}}</P>
+                </mat-panel-description>
+             </mat-expansion-panel-header  >
+             <p>Country Name:{{data.country}}</p>
+             <p>Alpha_two_code:{{data.alpha_two_code}}</p>
+             Domain: <a  href="{{data.web_pages}}">{{data.web_pages}}</a>
+        </mat-expansion-panel>
     </mat-grid-tile>
-    
-  </mat-grid-list>
+</mat-grid-list>
