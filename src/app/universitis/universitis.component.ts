@@ -9,12 +9,11 @@ import { UniversitydataService } from '../services/universitydata.service';
   styleUrls: ['./universitis.component.css']
 })
 
-export class UniversitisComponent implements OnInit {
-
- public countryCode:string | null | undefined
- public spinner=true
- private university!:universityData[]
- public Info:Array<universityData>=new Array()
+export class UniversitisComponent implements OnInit
+{   
+  public countryCode:string | null | undefined;
+  public spinner=true;
+  public Info:Array<universityData>=new Array();
  
   constructor(
     private activatedRoute: ActivatedRoute,private universities:UniversitydataService) { 
@@ -22,18 +21,20 @@ export class UniversitisComponent implements OnInit {
     }
   ngOnInit() 
   {
-    this.activatedRoute.paramMap.subscribe(param =>{
-      const countryName=param.get('country')
-      this.countryCode=countryName
-      this.universities.getuniversities(countryName).subscribe(response=>{
-      this.university=response as []
-        for(let i of this.university)
+    this.activatedRoute.paramMap.subscribe(param =>
+    {
+      const countryName=param.get('country');
+      this.countryCode=countryName;
+      this.universities.getuniversities(countryName).subscribe(response=>
+        {
+        for(let i of response as [])
           {
             this.Info.push(i);
           }
         });
     });
-    setTimeout(()=>{
+    setTimeout(()=>
+    {
       this.spinner=false;
     },3000);
   }
