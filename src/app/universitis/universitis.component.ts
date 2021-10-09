@@ -1,52 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { universityData } from '../Model/university.model';
 import { UniversitydataService } from '../services/universitydata.service';
-
-
-export interface universityData{
-  country:string;
-  name:string;
-  domains:[string];
-  alpha_two_code:string;
-  web_pages:[string];
-}
 
 @Component({
   selector: 'app-universitis',
   templateUrl: './universitis.component.html',
   styleUrls: ['./universitis.component.css']
 })
+
 export class UniversitisComponent implements OnInit {
-  countryCode: any;
-  spinner=true
-  university!:universityData[]
-  Info:Array<universityData>=new Array()
-  constructor(private activatedRoute: ActivatedRoute,private universities:UniversitydataService) { }
 
-  ngOnInit(): void {
+ public countryCode:string | null | undefined
+ public spinner=true
+ private university!:universityData[]
+ public Info:Array<universityData>=new Array()
+ 
+  constructor(
+    private activatedRoute: ActivatedRoute,private universities:UniversitydataService) { 
 
+    }
+  ngOnInit() 
+  {
     this.activatedRoute.paramMap.subscribe(param =>{
-      this.countryCode=param.get('country')
-    });
-    this.universities.getuniversities(this.countryCode).subscribe(response =>{
-      console.log("All information", response)
+      const countryName=param.get('country')
+      this.countryCode=countryName
+      this.universities.getuniversities(countryName).subscribe(response=>{
       this.university=response as []
-      for(let i of this.university){
-          this.Info.push(i)
-      }
-      console.log("College Name::-",this.Info)
-    
-
-    })
+        for(let i of this.university)
+          {
+            this.Info.push(i);
+          }
+        });
+    });
     setTimeout(()=>{
-      this.spinner=false
-    },5000)
-   
-   
-
+      this.spinner=false;
+    },3000);
   }
-
-
-
 }
