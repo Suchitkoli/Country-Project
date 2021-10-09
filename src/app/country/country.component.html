@@ -3,12 +3,13 @@ Countries
 </h2>
 
 <h3 style="text-align: center ; margin-top: 50px;">Select Country:</h3>
+
 <mat-form-field class="container"  style="position: absolute;">
   <mat-label>Select Country</mat-label>
     <mat-select>
-      <mat-option *ngFor="let data of dataInfo"  [value]="data" (click)="getcountry(data)">
-      {{data}}
+      <mat-option *ngFor="let data of countryList"  [value]="data" (click)="getcountry(data)">
+       {{data}}
       </mat-option>
     </mat-select>
-  </mat-form-field><br><Br>
+</mat-form-field>
 
